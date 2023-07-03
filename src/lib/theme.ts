@@ -32,6 +32,7 @@ const themeConfig = {
       default: pallets.gray500,
       active: pallets.orangeSecondary,
     },
+    border: pallets.gray0
   },
   fonts: {
     heading: `var(--font-sohne) ${baseTheme.fonts?.heading}`,
