@@ -8,3 +8,8 @@ export { default as Dashboard } from "./icons/dashboard.svg";
 export { default as Edit } from "./icons/Edit.svg";
 export { default as File } from "./icons/file_present.svg";
 export { default as Group } from "./icons/group.svg";
+export { default as Info } from "./icons/info.svg";
+export { default as Facebook } from "./images/fb.png";
+export { default as Instagram } from "./images/instagram.png";
+export { default as Linkedin } from "./images/linkedin.png";
+export { default as Twitter } from "./images/twitter.png";

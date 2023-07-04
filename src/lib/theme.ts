@@ -7,12 +7,14 @@ const pallets = {
   gray400: "#4D5760",
   gray500: "#31373D",
   white: "#ffffff",
-  orangeSecondary: "#FF5403",
+  orangeSecondary: "#FFDDCD",
   orangeDefault: "#FF5403",
 };
 const themeConfig = {
   colors: {
     brand: {
+      secondary: pallets.orangeSecondary,
+      primary: pallets.orangeDefault,
       500: pallets.orangeDefault,
     },
     gray: {
@@ -32,11 +34,11 @@ const themeConfig = {
       default: pallets.gray500,
       active: pallets.orangeSecondary,
     },
-    border: pallets.gray0
+    border: pallets.gray0,
   },
   fonts: {
-    heading: `var(--font-sohne) ${baseTheme.fonts?.heading}`,
-    body: `var(--font-sohne) ${baseTheme.fonts?.body}`,
+    heading: `${baseTheme.fonts?.heading} var(--font-sohne-bold)`,
+    body: `${baseTheme.fonts?.body} var(--font-sohne)`,
   },
 };
 

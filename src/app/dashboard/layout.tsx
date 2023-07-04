@@ -26,7 +26,6 @@ export default function DashboardLayout({
           height={["fit-content", "fit-content", "fit-content", "100vh"]}
           bg={{ base: "background", lg: "background" }}
           border="1px solid #EFF1F6"
-        //   padding={{ base: "6", lg: "8" }}
           position="sticky"
           top="0"
           bottom="0"
@@ -34,7 +33,7 @@ export default function DashboardLayout({
           pt="2rem"
         
         >
-          <HStack  pl="3.38rem" mb="1.5rem" display={{ base: "none", lg: "flex" }}>
+          <HStack  pl="3.38rem" mb="0.3rem" display={{ base: "none", lg: "flex" }}>
             <Logo />
           </HStack>
          

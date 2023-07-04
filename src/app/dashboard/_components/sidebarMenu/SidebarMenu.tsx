@@ -5,7 +5,7 @@ import sidebarContent from "@/app/dashboard/_data/sidebarMenuContent";
 import { Dashboard } from "@/assets";
 
 const SidebarMenu = () => {
-  const [activeMenu, setActiveMenu] = useState("dashboard");
+  const [activeMenu, setActiveMenu] = useState("Dashboard");
 
   const handleSelect = (menuTitle: string) => {
     setActiveMenu(menuTitle);
@@ -24,13 +24,13 @@ const SidebarMenu = () => {
             pt="4"
             pb="1"
             fontSize="0.75rem"
-            fontWeight="semibold"
+            fontWeight="400"
             color="text.body"
             letterSpacing="2px"
             textTransform="uppercase"
             fontFamily="fonts.body"
             mb="1rem"
-            mt="0.25rem"
+            // mt="0.25rem"
             pl="3.38rem"
           >
             {index > 0 && menuGroup.group}
@@ -48,7 +48,7 @@ const SidebarMenu = () => {
               fontSize="1rem"
               pl="3.38rem"
               fontFamily="fonts.body"
-              fontWeight="500"
+              fontWeight="600"
               lineHeight="1.5rem"
               mb="1.38rem"
               onClick={() => handleSelect(menuItem.title)}

@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Providers } from "./provider";
-import { sohneMono } from "../styles/fonts";
+import { sohneBold, sohneMono, sohneRegular, sohneSemibold } from "../styles/fonts";
 
 export const metadata = {
   title: "Create Next App",
@@ -17,11 +17,13 @@ export default function RootLayout({
       <style>
         {`
         :root {
-          --font-sohne: ${sohneMono.style.fontFamily};
+          --font-sohne: ${sohneRegular.style.fontFamily};
+          --font-sohne-semibold: ${sohneSemibold.style.fontFamily};
+          --font-sohne-bold: ${sohneBold.style.fontFamily};
         }
       `}
       </style>
-      <body className={sohneMono.className}>
+      <body >
         <Providers>{children}</Providers>
       </body>
     </html>
