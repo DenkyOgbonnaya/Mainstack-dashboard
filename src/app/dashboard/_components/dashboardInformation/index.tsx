@@ -7,7 +7,7 @@ import { useDashboardData } from "@/hooks";
 import PageViews from "../pageViews";
 import PageViewChart from "../pageViewaChart";
 
-const DashboardInformation = async () => {
+const DashboardInformation =  () => {
   const { data } = useDashboardData();
 
   return (
