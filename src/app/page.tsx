@@ -1,11 +1,8 @@
-"use client"
+import { DASHBOARD_ROUTE } from "@/constants/routes";
 import styles from "./page.module.css";
-import { Text } from "@chakra-ui/react";
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <Text>Home</Text>
-    </main>
-  );
+export default async function Home() {
+  redirect(DASHBOARD_ROUTE);
+  return <main className={styles.main}></main>;
 }
