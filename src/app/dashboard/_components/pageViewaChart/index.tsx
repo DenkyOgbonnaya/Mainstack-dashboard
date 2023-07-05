@@ -10,8 +10,9 @@ import {
   Title,
   Filler,
   ScriptableContext,
+  LineController
 } from "chart.js";
-import { Chart } from "react-chartjs-2";
+import {  Line } from "react-chartjs-2";
 import { GraphView } from "../../_interface";
 import { formatDate } from "@/utills/formatDate";
 
@@ -23,7 +24,8 @@ ChartJS.register(
   Title,
   Tooltip,
   Filler,
-  Legend
+  Legend,
+  LineController
 );
 
 interface IProps {
@@ -90,7 +92,7 @@ const PageViewChart: FC<IProps> = ({ data = {} }) => {
     },
   };
 
-  return <Chart type="bar" data={dataSet} options={options} />;
+  return <Line data={dataSet} options={options} />;
 };
 
 export default PageViewChart;
