@@ -30,18 +30,14 @@ import NextLink from "next/link";
 import Image from "next/image";
 import { getSocialLogo } from "@/utills/getSocialLogo";
 import { DASHBOARD_ROUTE } from "@/constants/routes";
+import { Source } from "../../_interface";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-interface Source {
-  source: string;
-  count: number;
-  percent: number;
-}
 interface Props {
   sources: Source[];
 }
-const TopRefferals: FC<Props> = ({ sources }) => {
+const TopRefferals: FC<Props> = ({ sources=[] }) => {
   const chartRef = useRef<ChartJSOrUndefined<
     "doughnut",
     number[],

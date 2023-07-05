@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "proxy": "https://fe-task-api.mainstack.io",
   "dependencies": {
     "@chakra-ui/next-js": "^2.1.4",
     "@chakra-ui/react": "^2.7.1",
@@ -17,6 +18,7 @@
     "@types/node": "20.3.3",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
+    "axios": "^1.4.0",
     "chart.js": "^4.3.0",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.7",

@@ -28,18 +28,15 @@ import { getFlagEmoji } from "@/utills/getFlagEmoji";
 import { getHashedColor } from "@/utills/getHashColor";
 import NextLink from "next/link";
 import { DASHBOARD_ROUTE } from "@/constants/routes";
+import { Location } from "../../_interface";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-interface Location {
-  country: string;
-  count: number;
-  percent: number;
-}
+
 interface Props {
   locations: Location[];
 }
-const TopLocations: FC<Props> = ({ locations }) => {
+const TopLocations: FC<Props> = ({ locations=[] }) => {
   const chartRef = useRef<ChartJSOrUndefined<
     "doughnut",
     number[],

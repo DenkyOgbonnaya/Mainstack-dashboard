@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <style>
+      {/* <style>
         {`
         :root {
           --font-sohne: ${sohneRegular.style.fontFamily};
@@ -22,7 +22,7 @@ export default function RootLayout({
           --font-sohne-bold: ${sohneBold.style.fontFamily};
         }
       `}
-      </style>
+      </style> */}
       <body >
         <Providers>{children}</Providers>
       </body>
