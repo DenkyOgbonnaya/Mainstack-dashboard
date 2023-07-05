@@ -87,7 +87,7 @@ const TopRefferals: FC<Props> = ({ sources=[] }) => {
     },
   };
   return (
-    <Card>
+    <Card height="full" alignSelf="stretch">
       <CardBody>
         <Flex justifyContent="space-between" mb="2.63rem">
           <Text

@@ -13,11 +13,11 @@ import {
 import React, { FC, useState } from "react";
 
 interface IProps {
-  onClick: (value: string | number) => void;
+  onClick: (label:string | number, value: string | number) => void;
 }
-const CUSTOM_FILTER = "custom";
+const CUSTOM_FILTER = "Custom";
 const RecordFilter: FC<IProps> = ({ onClick }) => {
-  const [current, setCurrent] = useState<string | number>(1);
+  const [current, setCurrent] = useState<string | number>("All Time");
   const [startDate, setStartDate] = useState<string>("");
   const [endDate, setEndDate] = useState<string>("");
   const [isCustom, setIsCustom] = useState(false);
@@ -25,19 +25,19 @@ const RecordFilter: FC<IProps> = ({ onClick }) => {
   const filterData = [
     {
       lable: "1 Day",
-      value: 1,
+      value: "1 Day",
     },
     {
       lable: "3 Days",
-      value: 3,
+      value: "3 Days",
     },
     {
       lable: "7 Days",
-      value: 7,
+      value: "7 Days",
     },
     {
       lable: "All Time",
-      value: 0,
+      value: "All Time",
     },
   ];
 
@@ -47,14 +47,15 @@ const RecordFilter: FC<IProps> = ({ onClick }) => {
     if (value == CUSTOM_FILTER) {
       setIsCustom(!isCustom);
     } else {
-      onClick(value);
+      onClick(value, value);
     }
   };
 
   const handleCustomSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsCustom(false);
-    onClick(current);
+    const customValue = `${startDate} ${endDate}`
+    onClick(CUSTOM_FILTER, customValue);
   };
   return (
     <Box>
