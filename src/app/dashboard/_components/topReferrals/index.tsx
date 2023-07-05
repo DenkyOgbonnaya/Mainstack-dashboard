@@ -1,4 +1,4 @@
-import React, { FC, useRef } from "react";
+import React, { FC } from "react";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -37,12 +37,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 interface Props {
   sources: Source[];
 }
-const TopRefferals: FC<Props> = ({ sources=[] }) => {
-  const chartRef = useRef<ChartJSOrUndefined<
-    "doughnut",
-    number[],
-    string
-  > | null>(null);
+const TopRefferals: FC<Props> = ({ sources = [] }) => {
 
   const labels = sources.map((source) => source.source);
   const dataSet = sources.map((source) => source.count);
@@ -86,6 +81,7 @@ const TopRefferals: FC<Props> = ({ sources=[] }) => {
       },
     },
   };
+ 
   return (
     <Card height="full" alignSelf="stretch">
       <CardBody>
@@ -117,12 +113,21 @@ const TopRefferals: FC<Props> = ({ sources=[] }) => {
           w="100%"
           alignItems="center"
           justifyContent="space-between"
-          flexDirection={{base:"column", md:"row"}}
+          flexDirection={{ base: "column", md: "row" }}
         >
-          <VStack alignItems="flex-start" spacing="1.19rem" mb={{base:"4", md:"0"}}>
+          <VStack
+            alignItems="flex-start"
+            spacing="1.19rem"
+            mb={{ base: "4", md: "0" }}
+          >
             {sources.map((source, index) => (
               <HStack key={source.source} spacing={5}>
-                <Image src={getSocialLogo(source.source)} width={20} height={20} alt={source.source} />
+                <Image
+                  src={getSocialLogo(source.source)}
+                  width={20}
+                  height={20}
+                  alt={source.source}
+                />
 
                 <Text
                   fontSize="1rem"
@@ -147,17 +152,13 @@ const TopRefferals: FC<Props> = ({ sources=[] }) => {
                   width="0.75rem"
                   height="0.75rem"
                   rounded="full"
-                  bg={
-                    chartRef.current?.data?.datasets[0]!.backgroundColor[
-                      index
-                    ] || "red"
-                  }
+                  bg={backgroundColors[index]}
                 />
               </HStack>
             ))}
           </VStack>
-          <Box w='40%' >
-            <Doughnut ref={chartRef} data={data} options={options} />
+          <Box w="40%">
+            <Doughnut data={data} options={options} />
           </Box>
         </Flex>
       </CardBody>

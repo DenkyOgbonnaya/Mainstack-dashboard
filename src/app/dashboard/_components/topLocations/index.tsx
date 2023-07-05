@@ -23,7 +23,6 @@ import {
   VStack,
   Link,
 } from "@chakra-ui/react";
-import { ChartJSOrUndefined } from "react-chartjs-2/dist/types";
 import { getFlagEmoji } from "@/utills/getFlagEmoji";
 import { getHashedColor } from "@/utills/getHashColor";
 import NextLink from "next/link";
@@ -32,16 +31,10 @@ import { Location } from "../../_interface";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-
 interface Props {
   locations: Location[];
 }
-const TopLocations: FC<Props> = ({ locations=[] }) => {
-  const chartRef = useRef<ChartJSOrUndefined<
-    "doughnut",
-    number[],
-    string
-  > | null>(null);
+const TopLocations: FC<Props> = ({ locations = [] }) => {
 
   const labels = locations.map((location) => location.country);
   const dataSet = locations.map((location) => location.count);
@@ -83,14 +76,14 @@ const TopLocations: FC<Props> = ({ locations=[] }) => {
           usePointStyle: true,
         },
 
-        // generateLabels: handleGenerateLabel,
+      
       },
     },
   };
   return (
     <Card height="full" alignSelf="stretch">
       <CardBody>
-        <Flex justifyContent="space-between"  mb="2.63rem">
+        <Flex justifyContent="space-between" mb="2.63rem">
           <Text
             fontSize="1.125rem"
             fontFamily="fonts.heading"
@@ -118,9 +111,13 @@ const TopLocations: FC<Props> = ({ locations=[] }) => {
           w="100%"
           alignItems="center"
           justifyContent="space-between"
-          flexDirection={{base:"column", md:"row"}}
+          flexDirection={{ base: "column", md: "row" }}
         >
-          <VStack alignItems="flex-start" spacing="1.19rem" mb={{base:"4", md:"0"}}>
+          <VStack
+            alignItems="flex-start"
+            spacing="1.19rem"
+            mb={{ base: "4", md: "0" }}
+          >
             {locations.map((location, index) => (
               <HStack key={location.country} spacing={5}>
                 <Text>{getFlagEmoji(location.country)}</Text>
@@ -147,17 +144,13 @@ const TopLocations: FC<Props> = ({ locations=[] }) => {
                   width="0.75rem"
                   height="0.75rem"
                   rounded="full"
-                  bg={
-                    chartRef.current?.data?.datasets[0]!.backgroundColor[
-                      index
-                    ] || "red"
-                  }
+                  bg={backgroundColors[index]}
                 />
               </HStack>
             ))}
           </VStack>
-          <Box w="40%" >
-            <Doughnut ref={chartRef} data={data} options={options} />
+          <Box w="40%">
+            <Doughnut data={data} options={options} />
           </Box>
         </Flex>
       </CardBody>
