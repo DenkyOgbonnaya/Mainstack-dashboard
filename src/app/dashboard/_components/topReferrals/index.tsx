@@ -23,8 +23,6 @@ import {
   VStack,
   Link,
 } from "@chakra-ui/react";
-import { ChartJSOrUndefined } from "react-chartjs-2/dist/types";
-import { getFlagEmoji } from "@/utills/getFlagEmoji";
 import { getHashedColor } from "@/utills/getHashColor";
 import NextLink from "next/link";
 import Image from "next/image";

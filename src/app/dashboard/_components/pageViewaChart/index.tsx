@@ -3,7 +3,6 @@ import {
   Chart as ChartJS,
   LinearScale,
   CategoryScale,
-  BarElement,
   PointElement,
   LineElement,
   Legend,

@@ -13,7 +13,7 @@ import {
 import React, { FC, useState } from "react";
 
 interface IProps {
-  onClick: (label:string | number, value: string | number) => void;
+  onClick: (label: string | number, value: string | number) => void;
 }
 const CUSTOM_FILTER = "Custom";
 const RecordFilter: FC<IProps> = ({ onClick }) => {
@@ -52,9 +52,9 @@ const RecordFilter: FC<IProps> = ({ onClick }) => {
   };
 
   const handleCustomSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    // e.preventDefault();
     setIsCustom(false);
-    const customValue = `${startDate} ${endDate}`
+    const customValue = `${startDate} ${endDate}`;
     onClick(CUSTOM_FILTER, customValue);
   };
   return (
@@ -68,9 +68,9 @@ const RecordFilter: FC<IProps> = ({ onClick }) => {
             }`}
             borderRadius="6.25rem"
             borderRightWidth="0px"
-            fontSize={{base:"0.15rem", md:"0.875rem"}}
+            fontSize={{ base: "0.15rem", md: "0.875rem" }}
             py="0.75rem"
-            px={{base:'0.25rem', md:"1rem"}}
+            px={{ base: "0.25rem", md: "1rem" }}
             fontFamily="fonts.heading"
             key={index.toString()}
             onClick={() => handleSelect(data.value)}
@@ -90,15 +90,14 @@ const RecordFilter: FC<IProps> = ({ onClick }) => {
         ))}
         <Menu isOpen={isCustom}>
           <MenuButton
-            as={Button}
             border={`1px solid ${
               current === CUSTOM_FILTER ? "#FF5403" : "#EFF1F6"
             }`}
             borderRadius="6.25rem"
             borderRightWidth="0px"
             py="0.75rem"
-            px={{base:'0.15rem', md:"1rem"}}
-            fontSize={{base:"0.65rem", md:"0.875rem"}}
+            px={{ base: "0.15rem", md: "1rem" }}
+            fontSize={{ base: "0.65rem", md: "0.875rem" }}
             fontWeight="700"
             fontFamily="fonts.heading"
             onClick={() => handleSelect(CUSTOM_FILTER)}
@@ -133,16 +132,26 @@ const RecordFilter: FC<IProps> = ({ onClick }) => {
                   />
                 </HStack>
                 <HStack mt="8" justifyContent="center">
-                  <Button variant="outline" type="submit" fontSize="sm">
+                  <Box
+                  onClick={handleCustomSubmit}
+                    // as="button"
+                    // // variant="outline"
+                    // type="submit"
+                    fontSize="sm"
+                    bg="brand.secondary"
+                    p="1"
+                    borderRadius={3}
+                  >
                     Ok
-                  </Button>
-                  <Button
-                    variant="unstyled"
+                  </Box>
+                  <Box
+                    // as="button"
+                    // variant="unstyled"
                     fontSize="xs"
                     onClick={() => setIsCustom(false)}
                   >
                     Cancel
-                  </Button>
+                  </Box>
                 </HStack>
               </Box>
             </MenuItem>

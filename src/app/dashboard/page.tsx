@@ -5,9 +5,12 @@ import NextLink from "next/link";
 
 import { DASHBOARD_ROUTE } from "@/constants/routes";
 import { getGreetings } from "@/utills/getGreetings";
-import DashboardInformation from "./_components/dashboardInformation";
-import { Suspense } from "react";
-import DashboardLoader from "./_components/dashboardLoader";
+import { Suspense, lazy } from "react";
+import Loading from "./loading";
+
+const DashboardInformation = lazy(
+  () => import("./_components/dashboardInformation")
+);
 
 export default function Dashboard() {
   const greetings = getGreetings();
@@ -66,7 +69,7 @@ export default function Dashboard() {
       >
         Check out your dashboard summary.
       </Text>
-      <Suspense fallback={<DashboardLoader />}>
+      <Suspense fallback={<Loading />}>
         <DashboardInformation />
       </Suspense>
     </Box>

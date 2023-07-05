@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import TopLocations from "../topLocations";
 import TopRefferals from "../topReferrals";
